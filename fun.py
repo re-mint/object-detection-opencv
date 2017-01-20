@@ -12,7 +12,7 @@ def show(image):
     
     #figure size in inches
     plt.figure(figsize=(10,10))
-    plt.show(image, interpolation='nearest')
+    plt.imshow(image, interpolation='nearest')
 
 def overlay_mask(mask, image):
     #mask the mask rgb
@@ -30,7 +30,7 @@ def find_biggest_contour(image):
 
     #return the biggest contour
     mask = np.zeros(image.shape, np.uint8)
-    cv2.drawContours(mask, [biggest], -1, 255, -1)
+    cv2.drawContours(mask, [biggest_contour], -1, 255, -1)
     return biggest_contour, mask
 
 def circle_contour(image, contour):
@@ -95,8 +95,8 @@ def find_strawberry(image):
 
 
 #read the image in 3 lines
-image = cv2.imread('yo.jpg')
+image = cv2.imread('berry.jpg')
 result = find_strawberry(image)
 
 #write the new image
-cv2.imwrite('yo2.jpg', result)
+cv2.imwrite('berry2.jpg', result)
