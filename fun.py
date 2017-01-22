@@ -65,7 +65,7 @@ def find_strawberry(image):
 
     #filter by brightness
     min_red2 = np.array([170,100,80])
-    max_red2 = np.array([100,256,256])
+    max_red2 = np.array([180,256,256])
 
     mask2 = cv2.inRange(image_blur_hsv, min_red2, max_red2)
 
